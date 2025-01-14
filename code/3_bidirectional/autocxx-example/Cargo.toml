@@ -1,0 +1,13 @@
+[package]
+name = "autocxx-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+autocxx = "0.27.1"
+cxx = "1.0.136"
+
+[build-dependencies]
+anyhow = "1.0.95"
+autocxx-build = "0.27.1"
+cxx-build = "1.0.136"

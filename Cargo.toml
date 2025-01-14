@@ -1,0 +1,15 @@
+# This exists so rust-analyzer works.
+[workspace]
+members = [
+    "skeleton/c-ffi",
+    "skeleton/cpp-ffi",
+    "skeleton/autocpp-ffi",
+    "skeleton/ipc/rust",
+    # 
+    "code/1_manual_ffi",
+    "code/2_automatic_ffi",
+    "code/3_bidirectional/autocxx-example",
+    "code/3_bidirectional/cxx-example",
+    "code/4_ipc/rust",
+]
+resolver = "2"

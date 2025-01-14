@@ -1,0 +1,38 @@
+set windows-shell := ["C:\\Program Files\\Git\\bin\\sh.exe","-c"]
+
+clean:
+  rm -rf build
+  cd rust/ && cargo clean
+
+build:
+  mkdir -p build
+  clang++ -Wall -std=c++17 cpp/server.cpp cpp/db.cpp -o build/server
+
+run-cpp-server: build
+  build/server
+
+run-client:
+  cd rust && cargo run --bin client
+
+run-rust-server:
+  cd rust && cargo run --bin server
+
+[unix]
+test:
+  just run-cpp-server &
+
+  # Wait til server is up
+  while ! nc -z localhost 7878; do sleep 0.1; done
+
+  just run-client
+
+  pkill -f build/server
+
+[windows]
+test:
+  @echo "Has to be tested manually"
+
+fmt:
+  clang-format --style Microsoft -i cpp/*.cpp
+  clang-format --style Microsoft -i cpp/*.hpp
+  cd rust && cargo fmt --all

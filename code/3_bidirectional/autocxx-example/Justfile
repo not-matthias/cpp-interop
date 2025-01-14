@@ -1,0 +1,27 @@
+clean:
+  rm -rf build
+  cargo clean
+
+build-static:
+  mkdir -p build
+  clang++ -std=c++17 -c -static \
+   -iquote target/debug/build/autocxx-example-5b66a4f20a216343/out/autocxx-build-dir/include \
+   -iquote src \
+    -o build/libdb.o cpp/db.cpp
+  ar r build/libdb.a build/libdb.o
+
+build-shared:
+  mkdir -p build
+  clang++ -shared -fPIC cpp/db.cpp \
+    -iquote target/debug/build/autocxx-example-5b66a4f20a216343/out/autocxx-build-dir/include \
+    -iquote src \
+    -o build/libdb.so
+
+build: clean build-static build-shared
+
+run:
+  LD_LIBRARY_PATH=build cargo run
+
+fmt:
+  clang-format --style Microsoft -i cpp/db.cpp cpp/db.hpp
+  cargo fmt --all

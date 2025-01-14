@@ -1,0 +1,22 @@
+set windows-shell := ["C:\\Program Files\\Git\\bin\\sh.exe","-c"]
+
+clean:
+  cd 1_manual_ffi/ && just clean
+  cd 2_automatic_ffi/bindgen-example && just clean
+  cd 3_bidirectional/cxx-example && just clean
+  cd 3_bidirectional/autocxx-example && just clean
+  cd 4_ipc/rust && just clean
+
+test:
+  cd 1_manual_ffi/ && just run
+  cd 2_automatic_ffi/ && just run
+  cd 3_bidirectional/cxx-example && just run
+  cd 3_bidirectional/autocxx-example && just run
+  cd 4_ipc/rust && just test
+
+fmt:
+  cd 1_manual_ffi/ && just fmt
+  cd 2_automatic_ffi/ && just fmt
+  cd 3_bidirectional/cxx-example && just fmt
+  cd 3_bidirectional/autocxx-example && just fmt
+  cd 4_ipc/rust && just fmt

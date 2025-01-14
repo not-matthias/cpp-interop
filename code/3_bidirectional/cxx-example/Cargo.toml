@@ -1,0 +1,10 @@
+[package]
+name = "cxx-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cxx = "1.0.136"
+
+[build-dependencies]
+cxx-build = "1.0.136"
