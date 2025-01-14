@@ -2,8 +2,8 @@
 [workspace]
 members = [
     "skeleton/c-ffi",
-    "skeleton/cpp-ffi",
-    "skeleton/autocpp-ffi",
+    "skeleton/cxx-ffi",
+    "skeleton/autocxx-ffi",
     "skeleton/ipc/rust",
     # 
     "code/1_manual_ffi",
