@@ -1,5 +1,6 @@
 # cpp-interop-seminar
 
+
 ## Requirements
 
 - VSCode Extension: ms-vscode.cpptools
@@ -19,3 +20,5 @@ The skeleton is designed like this:
 - [cpp-ffi](./skeleton/cxx-ffi/): Generate bindings using cxx. 
 - [autocpp-ffi](./skeleton/autocxx-ffi/): Generate bindings using autocxx.
 - [ipc](./skeleton/ipc/): Communicate between languages by using sockets.  
+
+Slides can be found [here](./SLIDES.pdf).
