@@ -10,4 +10,5 @@ fn nts<const N: usize>(array: &[u8]) -> [i8; N] {
 
 fn main() {
     println!("Hello, world!");
+
 }
